@@ -23,7 +23,7 @@
       <td>{{movie.director}}</td>
       <td>{{movie.actors}}</td>    
       <td>{{movie.year}}</td>
-      <td>{{movie.created_at}}</td>
+      <td>{{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</td>
     </tr>
   </table>
 

@@ -10,6 +10,7 @@
     var vm = this;
 
     vm.movies = [];
+    vm.fromStringToDate = fromStringToDate;
     
     activate();
 
@@ -24,6 +25,10 @@
         });
     }
 
+    function fromStringToDate (stringDate) {
+      var newDate = new Date(stringDate);
+      return newDate;
+    }
 
   }
 })();
