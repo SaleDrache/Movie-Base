@@ -11,6 +11,7 @@
 
     vm.movies = [];
     vm.fromStringToDate = fromStringToDate;
+    vm.isLoading = false;
     
     activate();
 
@@ -19,9 +20,13 @@
     }
 
     function getMovies() {
+      vm.isLoading = true;
       MovieService.getMovies()
         .then(function(result){
-          vm.movies = result.data
+          vm.movies = result.data;
+        })
+        .finally(function(){
+          vm.isLoading = false;
         });
     }
 

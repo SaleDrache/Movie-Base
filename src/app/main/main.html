@@ -18,7 +18,7 @@
     </tr>
     <tr ng-repeat="movie in main.movies | filter: { title: main.titleFilter }">
       <td>{{movie.id}}</td>
-      <td><img src="{{movie.image}}"></td>    
+      <td><img ng-src="{{movie.image}}"></td>    
       <td>{{movie.title}}</td>
       <td>{{movie.director}}</td>
       <td>{{movie.actors}}</td>    
@@ -26,5 +26,9 @@
       <td>{{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</td>
     </tr>
   </table>
+
+  <div class="spinner" ng-show="main.isLoading">
+    <img src="assets/images/loading_spinner.gif">
+  </div>
 
 </div>
