@@ -9,13 +9,18 @@
   function MainController(MovieService) {
     var vm = this;
 
-    vm.getMovies = getMovies;
-    getMovies();
+    vm.movies = [];
+    
+    activate();
 
-    function getMovies () {
+    function activate() {
+      getMovies();
+    }
+
+    function getMovies() {
       MovieService.getMovies()
         .then(function(result){
-          console.log(result.data)
+          vm.movies = result.data
         });
     }
 

@@ -1,4 +1,24 @@
 <div id="main" class="container">
 
+  <table class="col-xs-12">
+    <tr>
+      <th>id</th>
+      <th>Image</th>    
+      <th>Title</th>
+      <th>Director</th>
+      <th>Actors</th>    
+      <th>Year</th>
+      <th>Date added</th>
+    </tr>
+    <tr ng-repeat="movie in main.movies">
+      <td>{{movie.id}}</td>
+      <td><img src="{{movie.image}}"></td>    
+      <td>{{movie.title}}</td>
+      <td>{{movie.director}}</td>
+      <td>{{movie.actors}}</td>    
+      <td>{{movie.year}}</td>
+      <td>{{movie.created_at}}</td>
+    </tr>
+  </table>
 
 </div>
