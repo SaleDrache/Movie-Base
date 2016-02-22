@@ -9,9 +9,12 @@
   function MainController(MovieService) {
     var vm = this;
 
-    vm.movies = [];
     vm.fromStringToDate = fromStringToDate;
     vm.isLoading = false;
+    vm.movies = [];
+    vm.movieSortType = 'id';
+    vm.movieSortReverse = false;
+    vm.sortMovie = sortMovie;
     
     activate();
 
@@ -33,6 +36,11 @@
     function fromStringToDate (stringDate) {
       var newDate = new Date(stringDate);
       return newDate;
+    }
+
+    function sortMovie(sortType, reverse) {
+      vm.movieSortType = sortType;
+      vm.movieSortReverse = reverse;
     }
 
   }

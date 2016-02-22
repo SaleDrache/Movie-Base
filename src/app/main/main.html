@@ -10,13 +10,13 @@
     <tr>
       <th>id</th>
       <th>Image</th>    
-      <th>Title</th>
-      <th>Director</th>
+      <th>Title<i ng-click="main.sortMovie('title',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('title',true)" class="glyphicon glyphicon-chevron-up"></i></th>
+      <th>Director<i ng-click="main.sortMovie('director',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('director',true)" class="glyphicon glyphicon-chevron-up"></i></th>
       <th>Actors</th>    
-      <th>Year</th>
-      <th>Date added</th>
+      <th>Year<i ng-click="main.sortMovie('year',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('year',true)" class="glyphicon glyphicon-chevron-up"></i></th>
+      <th>Date added<i ng-click="main.sortMovie('created_at',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('created_at',true)" class="glyphicon glyphicon-chevron-up"></i></th>
     </tr>
-    <tr ng-repeat="movie in main.movies | filter: { title: main.titleFilter }">
+    <tr ng-repeat="movie in main.movies | filter: { title: main.titleFilter } | orderBy: main.movieSortType: main.movieSortReverse">
       <td>{{movie.id}}</td>
       <td><img ng-src="{{movie.image}}"></td>    
       <td>{{movie.title}}</td>
