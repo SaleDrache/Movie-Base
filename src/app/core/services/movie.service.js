@@ -11,7 +11,7 @@
       vm.getMovies = getMovies;
 
 	    function getMovies() {
-  	    return $http.get(config.api.concat('/v1/movies'));
+  	    return $http.get(config.api.concat('/movies'));
 	    }
 
 	
