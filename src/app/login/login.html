@@ -1,0 +1,38 @@
+<div id="login" class="container-fluid">
+
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          MovieBase
+        </a>
+      </div>
+      <a href="#" class="log navbar-right">Login</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+  <h2>Login</h2>
+
+  <form role="form">      
+    <div class="row">      
+      <div class="form-group col-xs-offset-3 col-xs-6"> 
+          <input ng-model="login.logInfo.email" type="email" class="form-control" placeholder="Email">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-xs-offset-3 col-xs-6"> 
+          <input ng-model="login.logInfo.password" type="password" class="form-control" placeholder="Password">
+      </div>
+    </div>
+
+    <div class="signInBtn form-group col-xs-offset-3 col-xs-6"> 
+      <button class="btn col-xs-12" ng-click="login.logIn()">SUBMIT</button>
+    </div>
+  </form>
+
+  </div>
+  
+</div>
