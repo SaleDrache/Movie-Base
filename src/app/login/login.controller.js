@@ -9,10 +9,11 @@
   function LoginController($auth, $state, UserService, $rootScope) {
     var vm = this;
 
+    vm.loginError = false;
     vm.logIn = logIn;
 
     function logIn (user) {
-    	$('.error').hide();
+    	vm.loginError = false;
 
     	$auth.login(user)
     		.then(function(response) {
@@ -41,7 +42,7 @@
 				$state.go('movies');
 			})
 			.catch(function(response) {
-				$('.error').show();
+				vm.loginError = true;
 			});
     }
 

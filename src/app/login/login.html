@@ -32,8 +32,8 @@
       <button class="btn col-xs-12" ng-click="login.logIn(login.logInfo)">SUBMIT</button>
     </div>
 
-    <p class="error">Please provide valid username and password</p>
-    
+    <p ng-show="login.loginError" class="error">Please provide valid username and password</p>
+
   </form>
 
   </div>
