@@ -21,7 +21,7 @@
         controllerAs: 'login'
       });
 
-    $urlRouterProvider.otherwise('/movies');
+    $urlRouterProvider.otherwise('/login');
   }
 
 })();

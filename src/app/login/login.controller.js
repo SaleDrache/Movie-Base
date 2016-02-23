@@ -22,20 +22,9 @@
 
     			UserService.getUser()    			
     				.then(function(result){
-
-    					localStorage.userCreatedAt = result.data.user.created_at;
-    					localStorage.userEmail = result.data.user.email;
-    					localStorage.userId = result.data.user.id;
-    					localStorage.userName = result.data.user.name;
-    					localStorage.userUpdatedAt = result.data.user.updated_at;
-
-    					$rootScope.user = {
-    						createdAt : localStorage.userCreatedAt,
-    						email : localStorage.userEmail,
-    						id : localStorage.userId,
-    						name : localStorage.userName,
-    						updatedAt : localStorage.userUpdatedAt
-    					};
+                        localStorage.user = JSON.stringify(result.data.user);
+                        $rootScope.user = JSON.parse(localStorage.user);
+                        $rootScope.userLoggedIn = true;
     				})
     			;
 

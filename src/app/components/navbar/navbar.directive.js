@@ -2,31 +2,20 @@
   'use strict';
 
   angular
-    .module('movieBase')
-    .directive('acmeNavbar', acmeNavbar);
+    .module('movieBase.navbar')
+    .directive('movieBaseNavbar', movieBaseNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function movieBaseNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
-      controllerAs: 'vm',
+      controller: 'NavbarController',
+      controllerAs: 'navig',
       bindToController: true
     };
 
     return directive;
-
-    /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
-
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
-    }
   }
 
 })();
