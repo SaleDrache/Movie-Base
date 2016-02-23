@@ -12,6 +12,8 @@
     vm.logIn = logIn;
 
     function logIn (user) {
+    	$('.error').hide();
+
     	$auth.login(user)
     		.then(function(response) {
 
@@ -19,7 +21,7 @@
 
     			UserService.getUser()    			
     				.then(function(result){
-    					
+
     					localStorage.userCreatedAt = result.data.user.created_at;
     					localStorage.userEmail = result.data.user.email;
     					localStorage.userId = result.data.user.id;
@@ -39,8 +41,7 @@
 				$state.go('movies');
 			})
 			.catch(function(response) {
-				// Handle errors here, such as displaying a notification
-				// for invalid email and/or password.
+				$('.error').show();
 			});
     }
 
