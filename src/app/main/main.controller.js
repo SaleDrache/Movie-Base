@@ -15,6 +15,7 @@
     vm.movieSortType = 'id';
     vm.movieSortReverse = false;
     vm.sortMovie = sortMovie;
+    vm.userLoggedIn = $rootScope.userLoggedIn;
     
     
     activate();
