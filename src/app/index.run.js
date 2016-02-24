@@ -9,7 +9,12 @@
   function runBlock($log, $rootScope) {
 
     $log.debug('runBlock end');
-    $rootScope.userLoggedIn = false;
+    if (localStorage.user) {
+      $rootScope.user = JSON.parse(localStorage.user);
+    } else {
+      $rootScope.user = '';
+    }
+    $rootScope.userLoggedIn = !_.isEmpty($rootScope.user);
   }
 
 })();

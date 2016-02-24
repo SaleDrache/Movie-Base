@@ -11,11 +11,7 @@
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
 
-      if ($rootScope.user === 'undefined') {
-        $rootScope.userLoggedIn = false;
-      }
-
-      if (toState.name === 'login' && typeof $rootScope.user !== 'undefined') {
+      if ( toState.name === 'login' && $rootScope.userLoggedIn ) {
         event.preventDefault();
         $state.go('movies');
       }

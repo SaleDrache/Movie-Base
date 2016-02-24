@@ -22,13 +22,14 @@
 
     			UserService.getUser()    			
     				.then(function(result){
-                        localStorage.user = JSON.stringify(result.data.user);
-                        $rootScope.user = JSON.parse(localStorage.user);
-                        $rootScope.userLoggedIn = true;
+              localStorage.user = JSON.stringify(result.data.user);
+              $rootScope.user = JSON.parse(localStorage.user);
+              $rootScope.userLoggedIn = true;
     				})
+            .then(function(result){
+              $state.go('movies');
+            })
     			;
-
-				$state.go('movies');
 			})
 			.catch(function(response) {
 				vm.loginError = true;

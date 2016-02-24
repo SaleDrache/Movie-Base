@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(MovieService) {
+  function MainController(MovieService, $rootScope) {
     var vm = this;
 
     vm.fromStringToDate = fromStringToDate;
@@ -15,6 +15,7 @@
     vm.movieSortType = 'id';
     vm.movieSortReverse = false;
     vm.sortMovie = sortMovie;
+    
     
     activate();
 
