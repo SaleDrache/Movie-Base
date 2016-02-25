@@ -27,12 +27,64 @@
       <td>{{movie.actors}}</td>    
       <td>{{movie.year}}</td>
       <td>{{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</td>
-      <td ng-show="main.userLoggedIn"><button class="btn deleteBtn">DELETE</button><button class="btn editBtn">EDIT</button></td>
+      <td ng-show="main.userLoggedIn"><button ng-click="main.openDeleteMovieModal(movie)" class="btn deleteBtn">DELETE</button><button ng-click="main.openEditMovieModal(movie)" class="btn editBtn">EDIT</button></td>
     </tr>
   </table>
 
   <div class="spinner" ng-show="main.isLoading">
     <img src="assets/images/loading_spinner.gif">
   </div>
+
+
+  <!-- Movie Edit/Delete Modal -->
+  <div id="movieModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">
+            <span ng-show="main.editingModal">Edit Movie</span> 
+            <span ng-show="main.deletingModal">Delete Movie</span>
+          </h2>
+        </div>
+        <div class="modal-body">
+          
+          <form ng-show="main.editingModal" role="form">
+            <div class="form-group">
+              <label for="title"><span class="glyphicon glyphicon-film"></span> Title</label>
+              <input ng-model="main.editingMovie.title" type="text" class="form-control" id="title">
+            </div>
+            <div class="form-group">
+              <label for="director"><span class="glyphicon glyphicon-user"></span> Director</label>
+              <input ng-model="main.editingMovie.director" type="text" class="form-control" id="director">
+            </div>
+            <div class="form-group">
+              <label for="actors"><span class="glyphicon glyphicon-camera"></span> Actors</label>
+              <input ng-model="main.editingMovie.actors" type="text" class="form-control" id="actors">
+            </div>
+            <div class="form-group">
+              <label for="year"><span class="glyphicon glyphicon-time"></span> Year</label>
+              <input ng-model="main.editingMovie.year" type="text" class="form-control" id="year">
+            </div>
+              <button ng-click="main.editMovie()" class="btn saveBtn btn-block"><span class="glyphicon glyphicon-saved"></span> Save</button>
+          </form>
+
+          <div ng-show="main.deletingModal">
+            <p>Are you sure that you want to permanently delete the selected movie?</p>
+            <button ng-click="main.deleteMovie()" class="btn deleteBtn btn-block"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
 
 </div>
