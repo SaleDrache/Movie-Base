@@ -1,15 +1,14 @@
 <nav id="navigation" class="navbar navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" ng-click="navig.goToMovies()" href="">
         MovieBase
       </a>
     </div>
     <div class="log navbar-right">
-    	<a ng-hide="navig.userLoggedIn" href="#" >Login</a>
+    	<a ng-hide="navig.userLoggedIn" ng-click="navig.logIn()" href="" >Login</a>
     	<span ng-show="navig.userLoggedIn"><i class="glyphicon glyphicon-user"></i> Welcome, {{navig.username}} </span>
-    	<span ng-show="navig.userLoggedIn"><i class="glyphicon glyphicon-log-out"></i> <a ng-click="navig.logOut()" href="#">Logout</a></span>
-    	
+    	<span ng-show="navig.userLoggedIn"><i class="glyphicon glyphicon-log-out"></i> <a ng-click="navig.logOut()" href="#">Logout</a></span>    	
     </div>
   </div>
 </nav>
