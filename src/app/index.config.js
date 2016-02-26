@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, $authProvider, config) {
+  function config($logProvider, toastrConfig, $authProvider, config, $httpProvider ) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -21,6 +21,9 @@
     $authProvider.loginUrl = config.api.concat('/authenticate');
     $authProvider.authHeader = 'Authorization';
     $authProvider.authToken = 'Bearer';
+
+    // Push the new service onto the $http interceptor array
+    $httpProvider.interceptors.push('InterceptorService');
   }
 
 })();
