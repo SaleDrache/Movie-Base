@@ -33,14 +33,19 @@
 
     function logOut() {
 
-        /*UserService.invalidateUserToken();*/
+        UserService.invalidateUserToken()
+            .then(function(){
+                $auth.logout();
 
-        $auth.logout();
-
-        localStorage.removeItem('user');
-        $rootScope.userLoggedIn = false;
-        vm.userLoggedIn = $rootScope.userLoggedIn;
-        $state.go('login');
+                localStorage.removeItem('user');
+                $rootScope.userLoggedIn = false;
+                vm.userLoggedIn = $rootScope.userLoggedIn;
+            })
+            .then(function(){
+                $state.go('login');
+            })
+        ;
+        
     }
 
   }
