@@ -2,6 +2,10 @@
 
   <movie-base-navbar> </movie-base-navbar>
 
+  <div ng-show="login.isError" class="col-xs-offset-3 col-xs-6 errorMessage">
+    <span><i class="glyphicon glyphicon-remove"></i> {{login.errorMessage}}, please login again</span>
+  </div>
+
   <div class="container">
 
   <h2>Login</h2>

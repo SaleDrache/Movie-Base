@@ -11,9 +11,12 @@
 
     vm.loginError = false;
     vm.logIn = logIn;
+    vm.isError = $rootScope.isError;
+    vm.errorMessage = $rootScope.errorMessage;
 
     function logIn (user) {
     	vm.loginError = false;
+      removeErrorMsg();
 
     	$auth.login(user)
     		.then(function(response) {
@@ -34,6 +37,17 @@
 			.catch(function(response) {
 				vm.loginError = true;
 			});
+    }
+
+    function removeErrorMsg() {
+      localStorage.isError = false;
+      localStorage.errorMessage = '';
+
+      $rootScope.isError = JSON.parse(localStorage.isError);
+      $rootScope.errorMessage = localStorage.errorMessage;
+
+      vm.isError = $rootScope.isError;
+      vm.errorMessage = $rootScope.errorMessage;
     }
 
   }

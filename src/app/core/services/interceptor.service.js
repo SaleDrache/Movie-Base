@@ -6,7 +6,7 @@
     .service('InterceptorService', InterceptorService);
 
     /** @ngInject */
-    function InterceptorService($q, $injector) { 
+    function InterceptorService($q, $injector, $rootScope) { 
       var vm = this;
       
       vm.responseError = responseError;
@@ -28,6 +28,7 @@
 
                 localStorage.removeItem('user');
                 $rootScope.userLoggedIn = false;
+                informUser(value);
 
                 $state.go('login');
             }
@@ -35,6 +36,14 @@
 
         return $q.reject(rejection);
 
+      }
+
+      function informUser(msg) {
+        localStorage.isError = true;
+        localStorage.errorMessage = msg;
+
+        $rootScope.isError = JSON.parse(localStorage.isError);
+        $rootScope.errorMessage = localStorage.errorMessage;
       }
 	
     }
