@@ -19,17 +19,9 @@
       <th>Date added<i ng-click="main.sortMovie('created_at',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('created_at',true)" class="glyphicon glyphicon-chevron-up"></i></th>
       <th ng-show="main.userLoggedIn">Options</th>
     </tr>
-    <tr ng-repeat="movie in main.movies | filter: { title: main.titleFilter } | orderBy: main.movieSortType: main.movieSortReverse">
-      <td>{{movie.id}}</td>
-      <td><img ng-src="{{movie.image}}"></td>    
-      <td>{{movie.title}}</td>
-      <td>{{movie.director}}</td>
-      <td>{{movie.actors}}</td>    
-      <td>{{movie.year}}</td>
-      <td>{{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</td>
-      <td ng-show="main.userLoggedIn"><button ng-click="main.openDeleteMovieModal(movie)" class="btn deleteBtn">DELETE</button><button ng-click="main.openEditMovieModal(movie)" class="btn editBtn">EDIT</button></td>
-    </tr>
   </table>
+
+  <movie-card ng-repeat="movie in main.movies | filter: { title: main.titleFilter } | orderBy: main.movieSortType: main.movieSortReverse"></movie-card>
 
   <div class="spinner" ng-show="main.isLoading">
     <img src="assets/images/loading_spinner.gif">
