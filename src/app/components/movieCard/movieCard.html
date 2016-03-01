@@ -7,7 +7,7 @@
     <h2 class="card-title"><span class="movieId">#{{movie.id}}</span> {{movie.title}} ({{movie.year}})</h2>
     <p class="card-text"><span>Director:</span> {{movie.director}}</p>
     <p class="card-text"><span>Stars:</span> {{movie.actors}}</p>
-<!--     <p class="card-date">{{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</p> -->
+	<p class="card-date">Added: {{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</p>
 
     <div ng-show="main.userLoggedIn" class="movieButtons"><button ng-click="main.openDeleteMovieModal(movie)" class="btn deleteBtn">DELETE</button><button ng-click="main.openEditMovieModal(movie)" class="btn editBtn">EDIT</button></div>
   </div>
