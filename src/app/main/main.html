@@ -8,18 +8,12 @@
     </div>
   </form>
 
-  <table class="col-xs-12">
-    <tr>
-      <th>id</th>
-      <th>Image</th>    
-      <th>Title<i ng-click="main.sortMovie('title',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('title',true)" class="glyphicon glyphicon-chevron-up"></i></th>
-      <th>Director<i ng-click="main.sortMovie('director',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('director',true)" class="glyphicon glyphicon-chevron-up"></i></th>
-      <th>Actors</th>    
-      <th>Year<i ng-click="main.sortMovie('year',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('year',true)" class="glyphicon glyphicon-chevron-up"></i></th>
-      <th>Date added<i ng-click="main.sortMovie('created_at',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('created_at',true)" class="glyphicon glyphicon-chevron-up"></i></th>
-      <th ng-show="main.userLoggedIn">Options</th>
-    </tr>
-  </table>
+  <div class="sortBy col-xs-12">   
+    <span>Title<i ng-click="main.sortMovie('title',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('title',true)" class="glyphicon glyphicon-chevron-up"></i></span>
+    <span>Director<i ng-click="main.sortMovie('director',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('director',true)" class="glyphicon glyphicon-chevron-up"></i></span>   
+    <span>Year<i ng-click="main.sortMovie('year',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('year',true)" class="glyphicon glyphicon-chevron-up"></i></span>
+    <span>Date added<i ng-click="main.sortMovie('created_at',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('created_at',true)" class="glyphicon glyphicon-chevron-up"></i></span>
+  </div>
 
   <movie-card ng-repeat="movie in main.movies | filter: { title: main.titleFilter } | orderBy: main.movieSortType: main.movieSortReverse"></movie-card>
 
