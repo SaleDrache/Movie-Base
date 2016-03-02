@@ -1,16 +1,30 @@
 
-<div id="movieCard" layout="column">
-  <p class="card-date" layout="row" layout-align="end center">Added: {{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</p>
-  <div class="card-img" layout="row" layout-align="center">  
-    <img ng-src="{{movie.image}}">
-  </div>
-  <div class="card-block">
-    <h2 class="card-title"><span class="movieId">#{{movie.id}}</span> {{movie.title}} ({{movie.year}})</h2>
+<md-card>
+
+  <md-card-header>
+    <md-card-header-text>
+      <span class="md-title">#{{movie.id}}</span>
+    </md-card-header-text>
+  </md-card-header>
+
+  <img ng-src="{{movie.image}}" class="md-card-image" alt="image caption">
+
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{movie.title}} ({{movie.year}})</span>
+    </md-card-title-text>
+  </md-card-title>
+
+  <md-card-content>
     <p class="card-text"><span>Director:</span> {{movie.director}}</p>
     <p class="card-text"><span>Stars:</span> {{movie.actors}}</p>
+  </md-card-content>
 
-    <div ng-show="main.userLoggedIn" layout="row" layout-align="center" class="movieButtons"><button ng-click="main.openDeleteMovieModal(movie)" class="btn deleteBtn">DELETE</button><button ng-click="main.openEditMovieModal(movie)" class="btn editBtn">EDIT</button></div>
-  </div>
-</div>
+  <md-card-actions layout="row" layout-align="start center">
+    <md-button ng-show="main.userLoggedIn" ng-click="main.openDeleteMovieModal(movie)" class="btn deleteBtn">DELETE</md-button>
+    <md-button ng-show="main.userLoggedIn" ng-click="main.openEditMovieModal(movie)" class="btn editBtn">EDIT</md-button>
+  </md-card-actions>
 
+</md-card>
 
+<!--   <p class="card-date" layout="row" layout-align="end center">Added: {{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</p> -->

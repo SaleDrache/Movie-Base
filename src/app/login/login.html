@@ -1,35 +1,38 @@
-<div id="login" class="container-fluid">
+<div id="login" layout="column">
 
   <movie-base-navbar> </movie-base-navbar>
 
-  <div ng-show="login.isError" class="col-xs-offset-3 col-xs-6 errorMessage">
-    <span><i class="glyphicon glyphicon-remove"></i> {{login.errorMessage}}, please login again</span>
+  <!-- ng-show="login.isError" -->
+  <div flex>
+    <div flex-offset="25" flex="50" class="errorMessage">
+      <span><i class="glyphicon glyphicon-remove"></i> {{login.errorMessage}}, please login again</span>
+    </div>
   </div>
 
-  <div class="container">
+  <div flex>
 
-  <h2>Login</h2>
+    <h2>Login</h2>
 
-  <form class="col-xs-offset-3 col-xs-6" role="form">      
-    <div class="row">      
-      <div class="form-group "> 
-          <input ng-model="login.logInfo.email" type="email" class="form-control" placeholder="Email">
+    <form layout-align="center center" flex="50" role="form">      
+      <div class="row">      
+        <div class="form-group "> 
+            <input ng-model="login.logInfo.email" type="email" class="form-control" placeholder="Email">
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="form-group"> 
-          <input ng-model="login.logInfo.password" type="password" class="form-control" placeholder="Password">
+      <div class="row">
+        <div class="form-group"> 
+            <input ng-model="login.logInfo.password" type="password" class="form-control" placeholder="Password">
+        </div>
       </div>
-    </div>
 
-    <div class="signInBtn form-group"> 
-      <button class="btn col-xs-12" ng-click="login.logIn(login.logInfo)">SUBMIT</button>
-    </div>
+      <div class="signInBtn form-group"> 
+        <button class="btn col-xs-12" ng-click="login.logIn(login.logInfo)">SUBMIT</button>
+      </div>
 
-    <p ng-show="login.loginError" class="error">Please provide valid username and password</p>
+      <p ng-show="login.loginError" class="error">Please provide valid username and password</p>
 
-  </form>
+    </form>
 
   </div>
   
