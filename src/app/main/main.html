@@ -1,4 +1,4 @@
-<div id="main" class="container">
+<div id="main" class="container" layout="column">
 
   <movie-base-navbar> </movie-base-navbar>
 
@@ -15,7 +15,9 @@
     <span>Date added<i ng-click="main.sortMovie('created_at',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('created_at',true)" class="glyphicon glyphicon-chevron-up"></i></span>
   </div>
 
-  <movie-card ng-repeat="movie in main.movies | filter: { title: main.titleFilter } | orderBy: main.movieSortType: main.movieSortReverse"></movie-card>
+  <div layout="row" layout-wrap layout-padding>
+    <movie-card flex="33" ng-repeat="movie in main.movies | filter: { title: main.titleFilter } | orderBy: main.movieSortType: main.movieSortReverse"></movie-card>
+  </div>
 
   <div class="spinner" ng-show="main.isLoading">
     <img src="assets/images/loading_spinner.gif">

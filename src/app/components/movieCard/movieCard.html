@@ -1,15 +1,16 @@
 
-<div id="movieCard" class="col-xs-12">
-  <div class="col-xs-3 card-img">  
+<div id="movieCard" layout="column">
+  <p class="card-date" layout="row" layout-align="end center">Added: {{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</p>
+  <div class="card-img" layout="row" layout-align="center">  
     <img ng-src="{{movie.image}}">
   </div>
-  <div class="col-xs-9 card-block">
+  <div class="card-block">
     <h2 class="card-title"><span class="movieId">#{{movie.id}}</span> {{movie.title}} ({{movie.year}})</h2>
     <p class="card-text"><span>Director:</span> {{movie.director}}</p>
     <p class="card-text"><span>Stars:</span> {{movie.actors}}</p>
 
-    <div ng-show="main.userLoggedIn" class="movieButtons"><button ng-click="main.openDeleteMovieModal(movie)" class="btn deleteBtn">DELETE</button><button ng-click="main.openEditMovieModal(movie)" class="btn editBtn">EDIT</button></div>
+    <div ng-show="main.userLoggedIn" layout="row" layout-align="center" class="movieButtons"><button ng-click="main.openDeleteMovieModal(movie)" class="btn deleteBtn">DELETE</button><button ng-click="main.openEditMovieModal(movie)" class="btn editBtn">EDIT</button></div>
   </div>
-
-  <p class="card-date">Added: {{main.fromStringToDate(movie.created_at) | date: 'MMM d, y'}}</p>
 </div>
+
+
