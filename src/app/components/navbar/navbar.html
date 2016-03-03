@@ -1,14 +1,17 @@
-<nav id="navigation" class="navbar navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" ng-click="navig.goToMovies()" href="">
+<div id="navigation" layout="column" layout-fill>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <a class="brand" flex-offset="20" ng-click="navig.goToMovies()" href="">
         MovieBase
       </a>
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+      <div class="log">
+        <a ng-hide="navig.userLoggedIn" ng-click="navig.logIn()" href="" >Login</a>
+        <span ng-show="navig.userLoggedIn"><ng-md-icon icon="account_circle" size="22"></ng-md-icon> Welcome, {{navig.username}} </span>
+        <span ng-show="navig.userLoggedIn"><ng-md-icon icon="logout" size="22"></ng-md-icon> <a ng-click="navig.logOut()" href="#">Logout</a></span>
+      </div>
+      <span flex="20"></span>
     </div>
-    <div class="log navbar-right">
-    	<a ng-hide="navig.userLoggedIn" ng-click="navig.logIn()" href="" >Login</a>
-    	<span ng-show="navig.userLoggedIn"><i class="glyphicon glyphicon-user"></i> Welcome, {{navig.username}} </span>
-    	<span ng-show="navig.userLoggedIn"><i class="glyphicon glyphicon-log-out"></i> <a ng-click="navig.logOut()" href="#">Logout</a></span>    	
-    </div>
-  </div>
-</nav>
+  </md-toolbar>
+</div>
