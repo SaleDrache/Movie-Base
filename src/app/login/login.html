@@ -1,19 +1,15 @@
+<movie-base-navbar> </movie-base-navbar>
+
 <div id="login" layout="column">
 
-  <movie-base-navbar> </movie-base-navbar>
-
-  <!-- ng-show="login.isError" -->
-  <div>
+  <div ng-show="login.isError">
     <div flex-offset="30" flex="40" class="errorMessage">
       <span><ng-md-icon icon="report_problem"></ng-md-icon> {{login.errorMessage}}, please login again</span>
     </div>
   </div>
 
-
-
   <div>
     <h2>Login</h2>
-
 
     <form flex-offset="35" flex="30" role="form" layout="column">
       <md-input-container>

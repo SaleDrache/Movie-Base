@@ -1,18 +1,18 @@
-<div id="main" class="container" layout="column">
+<movie-base-navbar> </movie-base-navbar>
 
-  <movie-base-navbar> </movie-base-navbar>
+<div id="main" flex-offset="20" flex="60" layout="column">
 
-  <form class="col-xs-12" role="form">           
-    <div class="form-group"> 
-      <input ng-model="main.titleFilter" type="text" class="form-control" placeholder="Search by title">
-    </div>
+  <form role="form">           
+    <md-input-container>
+      <input ng-model="main.titleFilter" type="text" class="filterInput" placeholder="Search by title">
+    </md-input-container>   
   </form>
 
-  <div class="sortBy col-xs-12">   
-    <span>Title<i ng-click="main.sortMovie('title',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('title',true)" class="glyphicon glyphicon-chevron-up"></i></span>
-    <span>Director<i ng-click="main.sortMovie('director',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('director',true)" class="glyphicon glyphicon-chevron-up"></i></span>   
-    <span>Year<i ng-click="main.sortMovie('year',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('year',true)" class="glyphicon glyphicon-chevron-up"></i></span>
-    <span>Date added<i ng-click="main.sortMovie('created_at',false)" class="glyphicon glyphicon-chevron-down"></i><i ng-click="main.sortMovie('created_at',true)" class="glyphicon glyphicon-chevron-up"></i></span>
+  <div class="sortBy">   
+    <span>Title<ng-md-icon icon="keyboard_arrow_down" ng-click="main.sortMovie('title',false)"></ng-md-icon><ng-md-icon icon="keyboard_arrow_up" ng-click="main.sortMovie('title',true)" ></ng-md-icon></span>
+    <span>Director<ng-md-icon icon="keyboard_arrow_down" ng-click="main.sortMovie('director',false)"></ng-md-icon><ng-md-icon icon="keyboard_arrow_up" ng-click="main.sortMovie('director',true)"></ng-md-icon></span>   
+    <span>Year<ng-md-icon icon="keyboard_arrow_down" ng-click="main.sortMovie('year',false)"></ng-md-icon><ng-md-icon icon="keyboard_arrow_up" ng-click="main.sortMovie('year',true)" ></ng-md-icon></span>
+    <span>Date added<ng-md-icon icon="keyboard_arrow_down" ng-click="main.sortMovie('created_at',false)"></ng-md-icon><ng-md-icon icon="keyboard_arrow_up" ng-click="main.sortMovie('created_at',true)" ></ng-md-icon></span>
   </div>
 
   <div layout="row" layout-wrap layout-padding>
