@@ -6,11 +6,12 @@
     .service('MovieService', MovieService);
 
     /** @ngInject */
-    function MovieService($http, $rootScope, config) { 
+    function MovieService($http, $rootScope, config, $mdDialog) { 
       var vm = this;
       vm.deleteMovie = deleteMovie;
       vm.editMovie = editMovie;
       vm.getMovies = getMovies;
+      vm.verifyDelete = verifyDelete;
 
 
 	    function getMovies() {
@@ -32,6 +33,16 @@
 
       function deleteMovie(movieId) {
         return $http.get(config.api.concat('/movie/delete/') + movieId );
+      }
+
+      function verifyDelete(movie) {
+        var confirm = $mdDialog.confirm()
+          .title('Confirm Your Choice')
+          .content('Are you sure you want to delete ' + movie.title + ' ?')
+          .ariaLabel('Delete Movie')
+          .ok('Delete Movie')
+          .cancel('Cancel');
+        return $mdDialog.show(confirm);
       }
 	
     }

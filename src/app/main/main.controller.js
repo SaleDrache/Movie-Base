@@ -63,21 +63,21 @@
         });
     }
 
-    function openDeleteMovieModal (movie) {
-      vm.editingModal = false;
-      vm.deletingModal = true;
-      vm.deletingMovie = angular.copy(movie);
-      $("#movieModal").modal();
-
-      
+    function openDeleteMovieModal (movie) { 
+      MovieService.verifyDelete(movie)
+        .then(function(){
+          return MovieService.deleteMovie(movie.id);
+        })
+        .then(function(){
+          getMovies();
+        })
     }
 
     function openEditMovieModal (movie) {
       vm.deletingModal = false;
       vm.editingModal = true;
       vm.editingMovie = angular.copy(movie);      
-      $("#movieModal").modal();
-      
+      $("#movieModal").modal();   
     }
 
     function sortMovie(sortType, reverse) {
