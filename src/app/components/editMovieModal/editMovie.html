@@ -1,0 +1,19 @@
+<form role="form">
+	<div class="form-group">
+	  <label for="title"><span class="glyphicon glyphicon-film"></span> Title</label>
+	  <input ng-model="edit.editingMovie.title" type="text" class="form-control" id="title">
+	</div>
+	<div class="form-group">
+	  <label for="director"><span class="glyphicon glyphicon-user"></span> Director</label>
+	  <input ng-model="edit.editingMovie.director" type="text" class="form-control" id="director">
+	</div>
+	<div class="form-group">
+	  <label for="actors"><span class="glyphicon glyphicon-camera"></span> Actors</label>
+	  <input ng-model="edit.editingMovie.actors" type="text" class="form-control" id="actors">
+	</div>
+	<div class="form-group">
+	  <label for="year"><span class="glyphicon glyphicon-time"></span> Year</label>
+	  <input ng-model="edit.editingMovie.year" type="text" class="form-control" id="year">
+	</div>
+	  <button ng-click="edit.editMovie()" class="btn saveBtn btn-block"><span class="glyphicon glyphicon-saved"></span> Save</button>
+</form>

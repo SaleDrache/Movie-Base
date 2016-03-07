@@ -74,10 +74,14 @@
     }
 
     function openEditMovieModal (movie) {
-      vm.deletingModal = false;
-      vm.editingModal = true;
-      vm.editingMovie = angular.copy(movie);      
-      $("#movieModal").modal();   
+      MovieService.editingMovie = angular.copy(movie);      
+      MovieService.verifyEdit()
+        .then(function(){
+          return MovieService.editMovie(vm.editingMovie);
+        })
+        .then(function(){
+          getMovies();
+        })
     }
 
     function sortMovie(sortType, reverse) {

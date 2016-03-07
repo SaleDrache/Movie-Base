@@ -10,8 +10,10 @@
       var vm = this;
       vm.deleteMovie = deleteMovie;
       vm.editMovie = editMovie;
+      vm.editingMovie = '';
       vm.getMovies = getMovies;
       vm.verifyDelete = verifyDelete;
+      vm.verifyEdit = verifyEdit;
 
 
 	    function getMovies() {
@@ -43,6 +45,17 @@
           .ok('Delete Movie')
           .cancel('Cancel');
         return $mdDialog.show(confirm);
+      }
+
+      function verifyEdit() {
+        var custom = {
+          controller: 'EditMovieController',
+          controllerAs: 'edit',
+          templateUrl: 'app/components/editMovieModal/editMovie.html',
+          parent: angular.element(document.body),
+          clickOutsideToClose:true,
+        }
+        return $mdDialog.show(custom);
       }
 	
     }
